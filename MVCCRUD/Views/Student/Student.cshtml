@@ -1,0 +1,62 @@
+﻿@model MVCCRUD.Models.ketsTable
+@{
+    ViewBag.Title = "Student";
+}
+
+<style>
+    .error
+    {
+        color:red;
+    }
+</style>
+
+<h2>Student Data Form</h2>
+
+@using (Html.BeginForm("AddStudent", "Student", FormMethod.Post))
+{
+    <div class="container" style="background-color:antiquewhite;">
+        
+
+        <div class="form-group">
+            @Html.HiddenFor(x=>x.ID)
+            <label>Name</label>
+            @Html.ValidationMessageFor(x => x.Name, "", new { @class = "error" }) @*helps to give message for error*@
+            @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+        </div>
+
+
+        <div class="form-group">
+            <label>Salary</label>
+            @Html.ValidationMessageFor(x => x.Salary, "", new { @class = "error" })
+            @Html.TextBoxFor(x => x.Salary, new { @class = "form-control" })
+        </div>
+
+
+        <div class="form-group">
+            <label>Age</label>
+            @Html.ValidationMessageFor(x => x.Age, "", new { @class = "error" })
+            @Html.TextBoxFor(x => x.Age, new { @class = "form-control" })
+        </div>
+
+        
+        <div class="form-group">
+            <label>Address</label>
+            @Html.ValidationMessageFor(x => x.Address, "", new { @class = "error" })
+            @Html.TextBoxFor(x => x.Address, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label>Department</label>
+            @Html.ValidationMessageFor(x => x.Department, "", new { @class = "error" })
+            @Html.TextBoxFor(x => x.Department, new { @class = "form-control" })
+        </div>
+        <br />
+        
+        <div class="row">
+            <div>
+                <button type="submit" style="display:inline-block;" class="btn btn-primary">Submit</button>
+            
+                <button type="reset" style="background-color:orangered;display:inline-block;" class="btn btn-primary">Reset</button>
+            </div>
+        </div>
+    </div>
+}

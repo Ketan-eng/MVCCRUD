@@ -1,0 +1,36 @@
+﻿@model List<MVCCRUD.Models.ketsTable>
+@{
+    ViewBag.Title = "StudentList";
+}
+
+<h2>StudentList</h2>
+
+<table class="table table-hover">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Salary</th>
+        <th>Age</th>
+        <th>Address</th>
+        <th>Department</th>
+        <th>Action</th>
+        
+
+    </tr>
+
+    @foreach (var item in Model) //model passes sollection of object from controller to view
+    {
+        <tr>
+            <td>@item.ID</td>
+            <td>@item.Name</td>
+            <td>@item.Salary</td>
+            <td>@item.Age</td>
+            <td>@item.Address</td>
+            <td>@item.Department</td>
+            <td>
+                <a href="@Url.Action("Student", new {item.ID,item.Name,item.Salary,item.Address,item.Age,item.Department})" class="btn btn-success"><p>✏️</p></a>
+                <a href="@Url.Action("Delete", new {item.ID})" class="btn btn-danger"><p>🗑️</p></a> @*//ye delete action ID lekr jaega jha bhi action lena hoga*@
+            </td>
+        </tr>
+    }
+</table>
